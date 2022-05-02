@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  get 'pages/contact'
-  get 'pages/about'
-  get 'pages/home'
+
+  devise_for :users
+  get "contact", to: "pages#contact"
+  get "about", to: "pages#about"
+
+  get "blog", to: redirect("https://example.com")
+
   resources :projects
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root "pages#home"
+
+  get "*path", to: redirect('/404')
+
 end

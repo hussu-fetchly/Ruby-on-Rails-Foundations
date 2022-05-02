@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <%= image_tag("logo.png", width: '150px') %>
+    <%= render "shared/nav" %>
+    <%= render "shared/alerts" %>
     <%= yield %>
   </body>
 </html>
